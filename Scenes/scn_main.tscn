@@ -10,7 +10,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 534.98, 522.948 )
+position = Vector2( 562.698, 526.728 )
 
 [node name="Spawner1" type="Node2D" parent="."]
 position = Vector2( 270.506, -30.51 )
@@ -26,6 +26,6 @@ wait_time = 4.0
 autostart = true
 
 [node name="ScoreTrigger" type="Node2D" parent="."]
-position = Vector2( 32, 582 )
+position = Vector2( 0.501968, 598.379 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Spawn_Cooldown"]

@@ -15,13 +15,10 @@ func _ready():
 	spawner.append($Spawner2)
 	spawner.append($Spawner3)
 	
-	print(spawner[0].position.x)
-	
+	# first car spawn, feel free to omit
 	var car_spawned = car.instance()
-	
 	rng.randomize()
 	var i = rng.randi_range(0,2)
-	
 	spawner[i].add_child(car_spawned)
 	
 	pass # Replace with function body.
@@ -30,17 +27,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	
-	
 	pass
 
 
 func _on_Spawn_Cooldown():
 	var car_spawned = car.instance()
-	
 	rng.randomize()
 	var i = rng.randi_range(0,2)
-
 	spawner[i].add_child(car_spawned)
-	
 	pass # Replace with function body.

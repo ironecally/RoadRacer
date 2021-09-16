@@ -1,4 +1,4 @@
-extends Sprite
+extends Node2D
 
 
 # Declare member variables here. Examples:
@@ -15,12 +15,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# check input user
-	
-	if(Input.is_action_pressed("ui_left")):
-		print("left is pressed")
-		position.x -= speed
-	elif(Input.is_action_pressed("ui_right")):
-		print("right is pressed")
-		position.x += speed
-	
+	if(position.x >100 && position.x < 800):
+		if(Input.is_action_pressed("ui_left")):
+			if (position.x - speed > 100):
+				position.x -= speed
+		elif(Input.is_action_pressed("ui_right")):
+			if (position.x + speed < 800):
+				position.x += speed
 	pass
