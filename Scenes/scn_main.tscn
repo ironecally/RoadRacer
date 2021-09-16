@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/obj_Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Script/GameManager.gd" type="Script" id=2]
+
+[node name="Root" type="Node"]
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": "This is a root node"
+}
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 534.98, 522.948 )
+
+[node name="Spawner1" type="Node2D" parent="."]
+position = Vector2( 270.506, -30.51 )
+
+[node name="Spawner2" type="Node2D" parent="."]
+position = Vector2( 809.773, -37.9263 )
+
+[node name="Spawner3" type="Node2D" parent="."]
+position = Vector2( 534.312, -34.7479 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="ScoreTrigger" type="Node2D" parent="."]
+position = Vector2( 32, 582 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Spawn_Cooldown"]
