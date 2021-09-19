@@ -41,11 +41,9 @@ func _process(delta):
 	
 	#simple animation (rotate the car a little when left/right button is pressed)
 	if(Input.is_action_pressed("ui_left")):
-		if (position.x - speed > left_border):
-			$Sprite.rotation_degrees -=1.0
+			$Sprite.rotation_degrees -=0.5
 	if(Input.is_action_pressed("ui_right")):
-		if (position.x + speed < right_border):
-			$Sprite.rotation_degrees +=1.0
+			$Sprite.rotation_degrees +=0.5
 	if(Input.is_action_just_released("ui_left") || Input.is_action_just_released("ui_right")):
 		$Sprite.rotation_degrees = -90
 	pass

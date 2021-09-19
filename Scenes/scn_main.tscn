@@ -1,8 +1,72 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/obj_Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Script/GameManager.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/obj_Map.tscn" type="PackedScene" id=3]
+[ext_resource path="res://asset/face_asset.png" type="Texture" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 102, 122, 102, 122 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 204, 122, 102, 122 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 306, 122, 102, 122 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 102, 122, 102, 122 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 102, 122 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 306, 122, 102, 122 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 102, 0, 102, 122 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 204, 0, 102, 122 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 306, 0, 102, 122 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 2 ) ],
+"loop": true,
+"name": "normal_lane",
+"speed": 3.0
+}, {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 5 ) ],
+"loop": true,
+"name": "oncoming_lane",
+"speed": 3.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 8 ) ],
+"loop": true,
+"name": "crash",
+"speed": 3.0
+} ]
 
 [node name="Root" type="Node"]
 script = ExtResource( 2 )
@@ -30,7 +94,6 @@ position = Vector2( 430, 0 )
 position = Vector2( 500, 0 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
 autostart = true
 
 [node name="Control" type="Control" parent="."]
@@ -77,6 +140,34 @@ align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Score_multiplier_lbl" type="Label" parent="Control/right_panel"]
+margin_left = 76.0164
+margin_top = 103.474
+margin_right = 338.017
+margin_bottom = 130.474
+text = "Multiplier"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score_multiplier_val" type="Label" parent="Control/right_panel"]
+margin_left = 86.0539
+margin_top = 134.705
+margin_right = 213.054
+margin_bottom = 161.705
+text = "1.0 x"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Control/right_panel"]
+position = Vector2( 56.5784, 532.509 )
+scale = Vector2( 0.520768, 0.520768 )
+frames = SubResource( 10 )
+animation = "normal_lane"
+frame = 2
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="Timer" to="." method="_on_Spawn_Cooldown"]
