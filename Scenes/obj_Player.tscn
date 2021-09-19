@@ -8,7 +8,11 @@ radius = 31.5373
 height = 67.0836
 
 [node name="Player" type="Node2D"]
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.964706, 0.0901961, 0.0901961, 1 )

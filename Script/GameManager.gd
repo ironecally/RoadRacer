@@ -16,18 +16,19 @@ func _ready():
 	spawner.append($Spawner3)
 	spawner.append($Spawner4)
 	
-	# first car spawn, feel free to omit
-	var car_spawned = car.instance()
-	rng.randomize()
-	var i = rng.randi_range(0,spawner.size()-1)
-	spawner[i].add_child(car_spawned)
-	
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	score+=1
+	update_score_text(score)
+	pass
+
+func update_score_text(scr):
+	var score_text = "%010d" % scr
+	$Control/right_panel/Score_val.text = score_text
+	pass
 
 func spawn_car():
 	var car_spawned = car.instance()
@@ -36,7 +37,7 @@ func spawn_car():
 	
 	if i <=1:
 		car_spawned.get_node("Sprite").flip_h = true
-		car_spawned.speed = 17
+		car_spawned.speed = 15
 	
 	spawner[i].add_child(car_spawned)
 	pass

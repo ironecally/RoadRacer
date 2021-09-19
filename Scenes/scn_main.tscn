@@ -11,26 +11,72 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 248.468, 522.354 )
+position = Vector2( 400, 550 )
 
 [node name="Map" parent="." instance=ExtResource( 3 )]
-position = Vector2( 295.277, 314.962 )
+position = Vector2( 400, 314.962 )
 z_index = -1
 
 [node name="Spawner1" type="Node2D" parent="."]
-position = Vector2( 160, 0 )
+position = Vector2( 305, 0 )
 
 [node name="Spawner2" type="Node2D" parent="."]
-position = Vector2( 250, 0 )
+position = Vector2( 370, 0 )
 
 [node name="Spawner3" type="Node2D" parent="."]
-position = Vector2( 340, 0 )
+position = Vector2( 430, 0 )
 
 [node name="Spawner4" type="Node2D" parent="."]
-position = Vector2( 430, 0 )
+position = Vector2( 500, 0 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="Control" type="Control" parent="."]
+margin_left = 82.0249
+margin_right = 122.025
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="left_panel" type="Panel" parent="Control"]
+margin_left = -82.0
+margin_right = 99.0
+margin_bottom = 602.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="right_panel" type="Panel" parent="Control"]
+margin_left = 531.0
+margin_top = -2.0
+margin_right = 939.0
+margin_bottom = 608.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score_lbl" type="Label" parent="Control/right_panel"]
+margin_left = 78.4619
+margin_top = 35.0
+margin_right = 340.462
+margin_bottom = 62.0
+text = "Score"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score_val" type="Label" parent="Control/right_panel"]
+margin_left = 82.3856
+margin_top = 62.5629
+margin_right = 209.386
+margin_bottom = 89.5629
+text = "0000000000"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_Spawn_Cooldown"]
