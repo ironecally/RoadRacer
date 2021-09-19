@@ -30,7 +30,7 @@ position = Vector2( 430, 0 )
 position = Vector2( 500, 0 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.5
 autostart = true
 
 [node name="Control" type="Control" parent="."]
@@ -51,9 +51,8 @@ __meta__ = {
 
 [node name="right_panel" type="Panel" parent="Control"]
 margin_left = 531.0
-margin_top = -2.0
 margin_right = 939.0
-margin_bottom = 608.0
+margin_bottom = 610.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -79,4 +78,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="Timer" to="." method="_on_Spawn_Cooldown"]
