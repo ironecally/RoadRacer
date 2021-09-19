@@ -4,18 +4,20 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export var speed = 10 
-var rng = RandomNumberGenerator.new()
+export var speed = 10
+var backgrounds = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	rng.randomize()
-	modulate = Color(rng.randf_range(0,1),rng.randf_range(0,1),rng.randf_range(0,1))
+	backgrounds.append($bg1)
+	backgrounds.append($bg2)
+	backgrounds.append($bg3)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position.y += speed
+	if position.y >= 1300:
+		position.y = 300
 	
-	if(position.y >= 2000):
-		queue_free()
 	pass
